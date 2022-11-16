@@ -1,2 +1,2 @@
 # CriminalRecords
-Criminal Record managment system for ethiopian prisins 
+Criminal Record managment system for ethiopian prisons
