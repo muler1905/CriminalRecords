@@ -1,0 +1,132 @@
+{% comment %} {% extends 'ex.html' %} {% endcomment %} {% load static %} {% block content %}
+
+<head>
+
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+</head>
+<link rel="stylesheet" href="{% static 'css/all.css'%}" {% include "../ex.html" %} <div class="wrapper">
+<div class="section">
+
+    <style>
+
+    </style>
+    {% include "../ex.html" %}
+    <div class="box-area">
+        {% if request.user.is_Admin%}
+        <h3 style="float:left">{{ request.user.prison }} Prison. </h3><br><br> {% endif %}
+        <section>
+            <center>
+                <h3 class="font" style="text-align: center;">Users.</h3>
+            </center>
+
+            <!-- {% if request.user.is_superuser %}
+                <h4 ><a class="ab" style="margin-right: 15px;"  href={% url 'index' %}>Back</a></h4>
+            {% endif %} -->
+
+            {% if request.user.is_Admin %}
+            <h4><a class="ab" href="{% url 'adduser' %}">Add New User</a></h4>
+            {% endif %} {% if request.user.is_superuser %}
+            <h4><a class="ab" href={% url 'register' %}>Add New User</a></h4>
+            {% endif %}
+
+            <div class="container">
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>UserName</th>
+                            <th>firstName</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Prison</th>
+                            <th>Role</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for cr in User %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ cr.username }}</td>
+                            <td>{{ cr.first_name }}</td>
+                            <td>{{ cr.last_name }}</td>
+                            <td>{{ cr.address }}</td>
+                            <td>{{ cr.email }}</td>
+                            <td>{{ cr.phone }}</td>
+                            <td>{{ cr.prison }} </td>
+                            <td>
+                                {% if cr.is_superuser%} SuperAdmin {% endif %} {% if cr.is_SuperManager%} SuperManager {% endif %} {% if cr.is_Admin %} Admin {% endif%} {% if cr.is_Manager%} Manager {% endif %} {% if cr.is_DataEncoder%} DataEncoder {% endif %}
+                            </td>
+                            <td>
+                                {% if request.user.is_superuser %}
+                                <a class="update" href="{% url 'edit_user' cr.id %}">
+                                    Edit</a> {% endif %} {% if request.user.is_Admin %}
+                                <a class="update" href="{% url 'admin_edit_user' cr.id %}">
+                                    Edit</a> {% endif %} {% if cr.is_active %}{%if not request.user.is_SuperManager %} <a class="update" style="color: red; font-weight:bold" href="{% url 'deactivate_user' cr.id %}">
+                                    Deactivate
+                                    </a> {% endif %} {% endif %} {% if not cr.is_active %} {%if not request.user.is_SuperManager %}
+                                <a class="update" style="color: green; font-weight:bold" href="{% url 'activate_user' cr.id %}">
+                                    Activate
+                                </a> {% endif %}{% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <script>
+                    $(document).ready(function() {
+                        $(document).ready(function() {
+                            $('table').DataTable({
+                                dom: 'Blfrtip',
+                                buttons: [{
+                                    extend: 'pdf',
+                                    title: 'Registered Users List',
+                                    filename: 'Users',
+                                    exportOptions: {
+                                        columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                                    },
+
+                                }, {
+                                    extend: 'excel',
+                                    title: 'Registered Users List',
+                                    filename: 'Users',
+                                    exportOptions: {
+                                        columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                                    },
+                                }, {
+                                    extend: 'csv',
+                                    title: 'Registered Users List',
+                                    filename: 'Users',
+                                    exportOptions: {
+                                        columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                                    },
+                                }]
+                            });
+                        });
+                    });
+                </script>
+
+
+            </div>
+
+    </div>
+    </section>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
