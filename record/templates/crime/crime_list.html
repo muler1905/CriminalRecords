@@ -1,0 +1,86 @@
+ 
+{% comment %} {% extends 'index.html' %} {% endcomment %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/all.css'%}">
+ 
+
+{% include "../index.html" %}
+
+<div class="wrapper">
+  <div class="section">
+      <div class="box-area">  
+   
+
+   
+  <section
+  style ="">
+ 
+    <center> <h2>Crimes</h2></center>
+   
+    {% if request.user.is_DataEncoder %}<h4 ><a style=" 
+      display:block;
+      font-family:'montserrat';
+      text-decoration:none;
+      font-size:17px; 
+      color:black;
+      position:relative;
+      padding:15px 0px 15px 25px;
+      transition:all 0.5s;
+      " href={% url 'crime' %}>Add New Crime</a></h4> 
+      {% endif %}
+    <div class="container"> 
+
+<div class="tbl-header">
+  <table cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr> 
+        <th>NO</th>
+        <th>CrimeName</th>
+        <th>Discription</th>
+        
+        {% if request.user.is_Admin %}
+        <th>Recordedby</th> 
+        {% endif %}
+          <th><th>
+           
+      </tr>
+    </thead>
+  </div>
+      {% for cr in crime %}
+      <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ cr.CrimeName }}</td> 
+          <td>{{ cr.Discription }}</td>   
+          
+          {% if request.user.is_Admin %}
+          <td>{{  cr.createdby.first_name}} {{  cr.createdby.last_name }}</td>  
+          {% endif %}
+          <td>
+            {% if request.user.is_DataEncoder %}
+              <a href="{% url 'edit_crime' cr.id %}">
+                <button style="color:green">Edit</button>
+                {% endif %}
+          </td>
+      </tr>
+      {% endfor %} 
+</table>
+</div>
+    
+  </div>
+    </section>
+  </div>
+</div>   
+</div>
+
+
+<script>
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+
+
+{% endblock %}

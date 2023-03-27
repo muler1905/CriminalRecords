@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+	resize: vertical;
+}
+
+body {
+font-family: 'Times New Roman', Times, serif;
+font-weight: 400;
+line-height: 1.5;
+/* background-image:url("R.jfif") ;*/
+/* margin: 0;*/
+ resize: vertical;
+}
+
+a {
+text-decoration: none;
+
+
+}
+
+li {
+list-style: none;
+}
+
+.navbar {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color:#5d5d9e;
+	resize: vertical;
+
+}
+
+.nav-links a {
+color: #fff;
+padding: 10px;
+
+}
+
+
+/* LOGO */
+
+.header {
+font-size: 40px;
+text-align: left;
+margin-left: -25%;
+/* text-decoration: white; */
+}
+
+.menu {
+display: flex;
+gap: 2em;
+font-size: 20px;
+}
+
+.menu li:hover {
+background-color: #00a4e6;
+border-radius: 15px;
+/*transition: 0s ease;*/
+}
+
+.menu li {
+padding: 10px 14px;
+}
+
+/* .services {
+position: relative;
+}
+
+.dropdown {
+background-color: rgb(4, 39, 236);
+padding: 1em 0;
+position: absolute;
+display: none;
+border-radius: 8px;
+top: 35px;
+}
+
+.dropdown li {
+margin-top: 10px;
+}
+
+.dropdown li {
+padding: 0.5em 1em;
+width: 8em;
+text-align: center;
+}
+
+.dropdown li:hover {
+background-color: #4c9e9e;
+}
+
+.services:hover .dropdown {
+display: block;
+} */
+
+.imgs{
+    max-width: 30%;
+    max-height: 30%;
+}
+
+
+
+
+.about{
+	width: 100%;
+    padding: 100px;
+	background-color: #07162b; 
+	
+}
+.about img{
+	height: 450px;
+	width: 420px;
+   /* padding-left: 0%;*/
+    padding: 0px;
+    margin: -430px;
+    padding-bottom: 0px;
+
+}
+.about-text{
+	width: 500px;
+}
+.main{
+	width: 1130px;
+	max-width: 95%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around; /*to give the space between the writing and the image */
+}
+.about-text h1{
+	color: white;
+	font-size: 80px;
+	text-transform: capitalize;
+	margin-bottom: 20px;
+}
+.about-text h5{
+	color: white;
+	font-size: 25px;
+	text-transform: capitalize;
+	margin-bottom: 25px;
+	letter-spacing: 2px;
+	
+}
+span{
+	color: #f9004d;
+}
+.about-text p{
+	color: #fcfc;
+	letter-spacing: 1px;
+	line-height: 28px;
+	font-size: 18px;
+	margin-bottom: 45px;
+}
+  

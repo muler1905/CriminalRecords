@@ -1,0 +1,195 @@
+<!-- <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head> -->
+<style>
+    body {
+        background-color: #2b2626;
+        margin: 0;
+    }
+    
+    p {
+        color: whitesmoke;
+    }
+    
+    .e {
+        font-weight: bolder;
+    }
+    
+    .pic {
+        height: 180px;
+        width: 250px;
+        padding: 7px 10px;
+    }
+    
+    .pic2 {
+        margin-left: 50px;
+        margin-right: 15px;
+        border-radius: 40px;
+        float: left;
+        width: 30%;
+        padding: 7px 6px;
+    }
+    
+    .st {
+        font-size: 35px;
+        font-weight: bold;
+        /* float: left; */
+        color: #5290e6;
+        /* #7a889c */
+    }
+    
+    h2 {
+        text-align: center;
+        color: #4585e6;
+    }
+    
+    .company {
+        color: whitesmoke;
+        border: 1px solid rgb(167, 164, 164);
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    
+    #main-footer {
+        background: rgb(27, 25, 25);
+        color: #fff;
+        text-align: center;
+        padding: 5px;
+        margin-top: 200px;
+    }
+    
+    .nav1 {
+        height: 200px;
+        width: auto;
+        font-size: 97%;
+        list-style-type: none;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        overflow: hidden;
+        background-color: rgb(54, 53, 53);
+    }
+    
+    .nav2 {
+        background-color: rgb(54, 53, 53);
+        margin-top: 2px;
+        margin-bottom: 2px;
+        list-style-type: none;
+        height: 55px;
+        width: auto;
+        font-size: 100%;
+        padding: 0;
+        margin-top: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        overflow: hidden;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    .log {
+        display: block;
+        border: none;
+        margin-right: 5.5px;
+        margin-top: 1.5px;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: #737981;
+        text-decoration: none;
+        color: rgb(49, 49, 49);
+        text-align: center;
+        padding: 10px;
+        width: 150px;
+        height: 25px;
+    }
+    
+    .log:hover {
+        background-color: #748baa;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    li a {
+        display: block;
+        text-decoration: none;
+        color: rgb(238, 217, 174);
+        /* text-align: center; */
+        padding: 14px 16px;
+    }
+    
+    li a:hover {
+        background-color: #0d3672;
+        margin-top: 5.5px;
+        border: none;
+        border-radius: 10px;
+    }
+    
+    .e {
+        margin-left: 255px;
+        margin-right: 200px;
+    }
+</style>
+
+
+<nav>
+    <div class="nav1">
+        {% load static %}
+        <li>
+            <img class="pic" src="{% static 'image/download.jpg' %} " alt="home " /></li><br>
+        <br<br><br>
+            <br<br><br>
+                <br<br>
+                    <br<br><br>
+                        <li>
+                            <p class="e ">&#x1F4E7; Email: amharaprison@gmail.com</p>
+                        </li>
+                        <p class="e ">&#x260E; Tel: +251-58-000-0000</p>
+                        <!-- <img class="pic " style="float: right; " src="{% static "image/scale.jpg" %} " alt="home "/> &#x1F4DE;-->
+</nav>
+<nav class="nav2 ">
+    <a class="log " href="{% url 'login' %} " style="float: right; padding: 14px 16px; ">Login?</a>
+    <p style="float: right; margin-right:7px;color: rgb(226, 155, 11); ">Hello, {{request.user}}</p>
+    <!-- {% if request.user.is_DataEncoder%} 
+        <p>DataEncoder</p> 
+        {% endif %} -->
+
+</nav>
+
+<br>
+<div>
+    <p>
+        {% load static %}
+        <img class="pic2 " src="{% static 'image/im.png' %} " alt="home " />
+    </p><br>
+    <!-- <div style="clear:both "></div> -->
+    <p class="st "><br><br>"Welcome to<br><br>Amhara Region Prison Police;<br><br> Online Criminal Record Management System."</p>
+</div>
+<div style="clear: both;"></div><br><br>
+
+
+
+
+<div class="company" style="margin-top: 200px">
+    <h2>Mission</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nemo modi eveniet quos ut ab numquam fugiat molestiae voluptates deserunt fugit ipsam illum molestias ratione, cumque eos tempore aliquam? Aspernatur.</p>
+</div><br>
+<div class="company">
+    <h2>Value</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nemo modi eveniet quos ut ab numquam fugiat molestiae voluptates deserunt fugit ipsam illum molestias ratione, cumque eos tempore aliquam? Aspernatur.</p>
+</div><br>
+<div class="company">
+    <h2>Goal</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nemo modi eveniet quos ut ab numquam fugiat molestiae voluptates deserunt fugit ipsam illum molestias ratione, cumque eos tempore aliquam? Aspernatur.</p>
+</div>
+
+
+<footer id="main-footer">
+    <p>Copyright &copy; 2022 BahirDar, Ethiopia</p>
+</footer>

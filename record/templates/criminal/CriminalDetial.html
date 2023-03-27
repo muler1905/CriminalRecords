@@ -1,0 +1,155 @@
+ {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/all.css'%}" <head>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css" />
+<Script src="https://code.jquery.com/jquery-1.12.3.js" type="text/javascript"></Script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js" type="text/javascript"></script>
+
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js">
+</script>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+</head>
+<style>
+textarea{
+    background-color: white;
+    margin-left: 30px;  font-weight: bold; font-size: 20px;
+    border: 2px solid;
+    width: 74%; 
+    padding: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .list{
+    text-align: inline-block; 
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2.5px solid;
+    font-size: 12px; font-weight: bold;
+  }
+  .list li{
+      /* font-weight: bold; */
+      margin-left: 20px; margin-right: 10px;
+      text-decoration: none; background-color:rgb(214, 211, 211);
+   }
+   .detail{
+    margin-right: 150px;
+    margin-left: 20px;
+    
+   }
+  
+  </style>
+{% include "../ex.html" %}
+
+<div class="wrapper">
+    <div class="section">
+        <div class="box-area">
+
+
+            <h3 style="float:left; text-align: center;">{{ request.user.prison }} Prison. </h3><br><br>
+
+            <section>
+
+                <center> <h3 class="font" style="text-align: center;">Criminal's Detail Information.</h3></center>
+
+                {% if not request.user.is_superuser %}
+                <h4 ><a class="ab" href="{% url 'criminal_list' %}">Back to Criminal List</a></h4><br><br><br><br><br>
+                {% endif %}
+
+            <div class="list">
+                <div class="detail" style="float: left;"><br><br>
+                    <li>FullName: {{criminal.CriminalName}}</li><br>
+                    <li>Age: {{criminal.Age}}</li><br>
+                    <li>Height: {{criminal.Height}}</li><br>
+                    <li>EyeColor: {{criminal.EyeColor}}</li><br>
+                    <li>Gender: {{criminal.Gender}}</li><br>
+                    <li>Nationality: {{criminal.Nationality}}</li><br>
+                    <li>EntranceDate: {{criminal.EntranceDate}}</li><br>
+                    <li>ReleasedDate: {{criminal.ReleasedDate}}</li><br>
+                    <li>Guardian: {{criminal.Guardian}}</li><br>
+                    <li>TimeLeft: {{criminal.timeleft}}</li><br>
+                </div>
+            
+                <div class="detaill">
+                    <br><br>
+                    <li>BloodType: {{criminal.Bloodtype}}</li><br>
+                    <li>AssignedCellNumber: {{criminal.AssignedCellNumber}}</li><br>
+                    <li>Status: {{criminal.Status}}</li><br>
+                    <li>ImprisonmentTime: {{criminal.ImprisonmentTime}}</li><br>
+                    <li>Address: {{criminal.Address}}</li><br>
+                    <li>Category: {{criminal.Category}}</li><br>
+                    <li>CrimeDescription: {{criminal.CrimeDescription}}</li><br>
+                    <li>Prison: {{criminal.prison}}</li><br>
+                    <li>Catagory: {{criminal.Category}}</li><br><br>
+                </div>
+                <div style="clear: both;"></div><br><br><br>
+                    <li style="float: left;">Description:</li><br>
+                    <textarea disabled cols="100" rows="10">{{criminal.CrimeDescription}}</textarea><br><br><br><br>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+                <!-- <div class="container" style=" margin-left:25%;">
+                    <div class="d">
+                        <li> <label>Name: </label> {{criminal.CriminalName}}</li><br>
+                        <li><label>Age: </label> {{criminal.Age}}<br>
+                            <li><label>Height:  </label>{{criminal.Height}}</li><br>
+                            <li><label>Gender: </label> {{criminal.Gender}}</li><br>
+                            <li><label>EyeColor: </label> {{criminal.EyeColor}}</li><br>
+                            <li><label>Nationality: </label> {{criminal.Nationality}}</li><br>
+                            <li><label>Guardian: </label> {{criminal.Gardian}}</li><br>
+                    </div>
+                    <div class="d" style="margin-left:15%;">
+                        <li><label>CrimeDate: </label> {{criminal.CrimeDate}}</li><br>
+                        <li><label>ArresstedDate: </label> {{criminal.ArrestedDate}}</li><br>
+                        <li><label>ImprisonmentTime:  </label>{{criminal.Imprisonment }}</li><br>
+                        <li><label>Address:  </label>{{criminal.Address}}</li><br>
+                        <li><label>Prison: </label> {{criminal.prison}}</li><br>
+                        <li><label>Crime: </label> {{criminal.Crime}}</li><br>
+                    </div>
+                </div> -->
+
+        <!-- </div>
+        </section>
+    </div>
+</div>
+</div> -->
+<style>
+    .container {
+        text-align: inline-block;
+    }
+    
+    .d {
+        padding: 10 px;
+        display: inline-block;
+    }
+    
+    label {
+        font-size: 25 px;
+        margin-right: 10 px;
+        font-family: san-serif;
+        font-weight: 800;
+    }
+    
+    li {
+        list-style: none;
+        padding: 0;
+        font-size: 18px;
+        font-weight: blold;
+    }
+</style>
+{% endblock %}
